@@ -1,0 +1,12 @@
+# RegRipper #
+RegRipper is an open source tool, written in Perl, for extracting/parsing information (keys, values, data) from the Registry and presenting it for analysis.
+
+RegRipper consists of two basic tools, both of which provide similar capability.  The RegRipper GUI allows the analyst to select a hive to parse, an output file for the results, and a profile (list of plugins) to run against the hive.  When the analyst launches the tool against the hive, the results go to the file that the analyst designated.  If the analyst chooses to parse the System hive, they might also choose to send the results to _system.txt_.  The GUI tool will also create a log of it's activity in the same directory as the output file, using the same file name but using the _.log_ extension (i.e., if the output is written to _system.txt_, the log will be written to _system.log_).
+
+RegRipper also includes a command line (CLI) tool called _rip_.  Rip can be pointed against to a hive and can run either a profile (a list of plugins) or an individual plugin against that hive, with the results being sent to STDOUT.  Rip can be included in batch files, using the redirection operators to send the output to a file.  Rip does not write a log of it's activity.
+
+RegRipper is similar to tools such as Nessus, in that the application itself is simply an engine that runs plugins.  The plugins are individual Perl scripts that each perform a specific function.  Plugins can locate specific keys, and list all subkeys, as well as values and data, or they can locate specific values.  Plugins are extremely valuable in the sense that they can be written to parse data in a manner that is useful to individual analysts.
+
+**Note**: Plugins also serve as a means of retaining _corporate knowledge_, in that an analyst finds something, creates a plugin, and adds that plugin to a repository that other analysts can access.  When the plugin is shared, this has the effect of being a _force multiplier_, in that all analysts know have access to the knowledge and experience of one analyst.  In addition, plugins remain long after analysts leave an organization, allowing for retention of knowledge.
+
+The use and function of RegRipper is discussed in great detail in the book, _[Windows Registry Forensics](http://www.syngress.com/digital-forensics/Windows-Registry-Forensics/)_.
